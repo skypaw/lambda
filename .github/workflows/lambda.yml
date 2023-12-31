@@ -1,4 +1,12 @@
-on: workflow_dispatch
+on:
+  workflow_dispatch:
+    inputs:
+      test:
+        description: "testing workflow option"
+        required: false
+        default: "imnotsetbruv"
+        type: string
+
 jobs:
   lambda-run:
     runs-on: ubuntu-latest
