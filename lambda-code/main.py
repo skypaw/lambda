@@ -1,10 +1,11 @@
 import argparse
+import json
 
 
 def handler(context: argparse.Namespace):
     # lambda writing to the file
     with open('./output.json', 'w') as file:
-        print(f"{context} in file")
+        print(json.dumps(context))
 
 
 if __name__ == "__main__":

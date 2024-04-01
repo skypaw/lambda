@@ -11,5 +11,8 @@ jobs:
   lambda-run:
     runs-on: ubuntu-latest
     steps:
-      - run: echo ${{inputs.test}}
       - run: python lambda-code/main.py --string-input ${{inputs.test}}
+      - name: Archive code coverage results
+        uses: actions/upload-artifact@v4
+        with:
+          path: lambda-code/output.json
