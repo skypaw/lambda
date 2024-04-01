@@ -5,7 +5,7 @@ import json
 def handler(context: argparse.Namespace):
     # lambda writing to the file
     with open('./output.json', 'w') as file:
-        print(json.dumps(context))
+        print(json.dumps(context.__dict__))
 
 
 if __name__ == "__main__":
@@ -14,3 +14,4 @@ if __name__ == "__main__":
 
     args = parser.parse_args()
     handler(args)
+
