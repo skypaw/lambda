@@ -4,7 +4,7 @@ import json
 
 def handler(context: argparse.Namespace):
     # lambda writing to the file
-    with open('./output.json', 'w') as file:
+    with open('lambda-code/output.json', 'w') as file:
         print(json.dumps(context.__dict__))
 
 
