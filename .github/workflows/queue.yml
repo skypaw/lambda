@@ -1,5 +1,7 @@
 on:
   workflow_dispatch:
+    branches:
+      - "queue*"
     inputs:
       test:
         description: "testing workflow option"
@@ -8,12 +10,13 @@ on:
         type: string
 
 jobs:
-  lambda-run:
+  lambda-queue:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v3
-      - run: python lambda-code/main.py --string-input ${{inputs.test}}
+      - run: pip install -r actions-tools/requirements.asc
+      - run: python actions-tools/actions_queue.py
       - name: Archive code coverage results
         uses: actions/upload-artifact@v4
         with:
